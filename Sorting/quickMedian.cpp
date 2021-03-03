@@ -26,15 +26,17 @@ void median(int arr[], int l, int h, int mid, int &a, int &b){
         int pivot = randomise(arr,l,h);
         if(pivot==mid){
             b=arr[pivot];
+            a=arr[pivot-1];
         }
-        else if(pivot == mid-1){
+         if(pivot==mid-1){
             a=arr[pivot];
+            b=arr[pivot+1];
         }
         if(pivot>=mid){
             return median(arr, l , pivot-1, mid, a, b);
         }
         else
-           return median(arr, pivot+1,h, mid, a, b);
+           return median(arr, pivot+1, h, mid, a, b);
     }
 }
 
